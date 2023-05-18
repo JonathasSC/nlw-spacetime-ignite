@@ -1,8 +1,18 @@
 import { ReactNode } from 'react'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Bai_Jamjuree, Montserrat, Roboto_Flex } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto_Flex({
+  subsets: ['latin'],
+  weight: 'variable',
+  variable: '--font-roboto',
+})
+
+const BaiJamjuree = Bai_Jamjuree({
+  subsets: ['latin'],
+  weight: '500',
+  variable: '--font-jamjuree',
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +22,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${roboto.variable} ${BaiJamjuree.variable} bg-gray-900 font-sans text-gray-100`}
+      >
+        {children}
+      </body>
     </html>
   )
 }
